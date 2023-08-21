@@ -1,0 +1,31 @@
+[
+    {
+        "name": "api_key_validation_function",
+        "private": true
+    },
+    {
+        "name": "candlelast",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "retest",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "test",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "api_key_disable_function",
+        "private": false,
+        "disable_arg_logs": true
+    },
+    {
+        "name": "api_key_enable_all",
+        "private": false,
+        "disable_arg_logs": true
+    }
+]
