@@ -31,28 +31,7 @@ exports = async function(authEvent) {
     //deshabilitar el API al MAX
     if(amount_calls>api_limit){
       
-        context.functions.execute("api_key_disable_function", apiKeyId );
+        await context.functions.execute("api_key_disable_function", apiKeyId );
     }
 
-    //trigger 7am habilitar todos los API KEY deshabilitados
-    
-    //caching de resultado 24h de function
-
-   //if register does not exists 
-    
-    //const apiKeyValue = headers["apiKey"];
-    
-    /*
-
-    {
-    "apiKey":"",
-    "date":"",
-    "calls":0
-    }
-
-    */
-    
-  
-  
-  
 };

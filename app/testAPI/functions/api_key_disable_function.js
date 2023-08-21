@@ -1,11 +1,10 @@
 exports = async function(apiKeyId){
 
   console.log("Invoking getInfoApp");
-  const context_data = context.functions.execute("api_key_getInfoApp");
-  console.log("End of getInfoApp");
+  const context_data = await context.functions.execute("api_key_getInfoApp");
+  console.log("End of getInfoApp: The context data is=", context_data);
   
-  const bearer_token = context_data.bearer_token;
- 
+  const bearer_token = context_data.bearer_token; 
 
   //DISABLE API KEY 
   //https://www.mongodb.com/docs/atlas/app-services/admin/api/v3/#tag/apikeys/operation/adminDisableApiKey
@@ -25,7 +24,7 @@ exports = async function(apiKeyId){
     }
   );
   
-  result = JSON.parse(response.body.text());
+  let result = JSON.parse(response.body.text());
   console.log(JSON.stringify(result));
 
 }

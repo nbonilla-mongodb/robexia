@@ -1,13 +1,17 @@
 exports = async function(){
 
-      //--------Get Access Token
+  //--------Get Access Token
   //https://www.mongodb.com/docs/atlas/app-services/admin/api/v3/#section/Get-Authentication-Tokens
   let endpoint = 'https://realm.mongodb.com/api/admin/v3.0/auth/providers/mongodb-cloud/login';
-  let body_data = {
-    //PUBLIC KEY AND PRIVATE KEY, MUST SAVE TO PRIVATE VALUES
-    "username": "tqndwjac", 
-    "apiKey": "782e4192-a233-4380-bc14-302b03b1b8cb"
-  }
+  const username_projectApiKey = context.values.get("value_username_projectApiKey");
+  const apiKey_project = context.values.get("value_apiKey_project");
+  const body_data = {
+    "username": username_projectApiKey,
+    "apiKey":  apiKey_project
+  };
+
+  console.log(JSON.stringify(body_data));
+  
   let response = await context.http.post(
     {
       url: endpoint,
@@ -16,30 +20,21 @@ exports = async function(){
     }
   );
   
-  let result = JSON.parse(response.body.text());
-  
+  let result = JSON.parse(response.body.text());  
   const ACCESS_TOKEN = result.access_token;
-
   const bearer_token = 'Bearer '.concat(ACCESS_TOKEN);
 
   //console.log(bearer_token);
 
   //-------Get AppID
   //https://www.mongodb.com/docs/atlas/app-services/admin/api/v3/#tag/apps/operation/adminListApplications
-  //MOVE TO PRIVATE VALUE
-  const PROJECT_ID = "648b3b5fa894b003ac4d8614";
-  const APP_NAME = "testapi-wuzzd";
-  //END PRIVATE VALUES
+  const PROJECT_ID = context.app.projectId;
+  const APP_NAME = context.app.clientAppId;
+ 
+
 
   endpoint = "https://realm.mongodb.com/api/admin/v3.0/groups/{groupId}/apps";
   endpoint = endpoint.replace("{groupId}",PROJECT_ID);
-
-
-  body_data = {
-    //PUBLIC KEY AND PRIVATE KEY, MUST SAVE TO PRIVATE VALUES
-    "username": "tqndwjac", 
-    "apiKey": "782e4192-a233-4380-bc14-302b03b1b8cb"
-  };
 
   response = await context.http.get(
     {
