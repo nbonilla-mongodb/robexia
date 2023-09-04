@@ -4,8 +4,8 @@ const API_KEY = "7g9bunOiTP0nd4lrZPqdt9QEQLVTLi91qMalb6kdvhfarrmkbGIyy3ox0MHYjcY
 
 // Define the request headers
 const headers = {
-  'Content-Type': 'application/json',
-  'Authorization': `Bearer ${API_KEY}`,
+  
+  'apiKey': API_KEY
 };
 
 const options = {
