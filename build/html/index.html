@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Widget de Datos</title>
+    <button id="myButton" onclick="callProxyAPI()"></button>>Click me</button>
     <style>
 		#widget {
 			font-family: Arial, sans-serif;
@@ -39,9 +40,6 @@
     </style>
 </head>
 <body>
- 
-    <button onclick="callRobexia()">Fetch RobexiaAPI</button>
-
     <div id="widget">
         <table>
             <thead>
@@ -81,8 +79,21 @@
             </tbody>
         </table>
     </div>
-   
-    <script src="callapi.js"></script>
-   
+    <script>
+        
+        function callProxyAPI(){
+	
+		    fetch('http://172.16.238.11:3000', {
+			  method: 'GET', 
+			  
+			})
+			.then(response => response.json())
+			.then(data => console.log(data))
+			.catch(error => console.error('Error:', error));
+        }
+
+     
+
+    </script>
 </body>
 </html>

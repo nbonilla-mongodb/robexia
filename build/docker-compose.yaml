@@ -16,12 +16,12 @@ services:
     volumes:
       - ./html:/usr/share/nginx/html
     networks:
-      - test_network: 
-          ipv4_address: 172.16.238.10
+      test_network: 
+        ipv4_address: 172.16.238.10
 
   nodeapp:
     image: node:14 # Replace with your desired Node.js version
-    container_name: my-node-app
+    container_name: RobexiaAPIProxy
     working_dir: /app
     volumes:
       - ./node_approach:/app
@@ -29,8 +29,5 @@ services:
     ports:
       - "3000:3000" # Replace with the desired port mapping if applicable
     networks:
-      - test_network: 
-          ipv4_address: 172.16.238.11
-
-
-      
+      test_network: 
+        ipv4_address: 172.16.238.11
