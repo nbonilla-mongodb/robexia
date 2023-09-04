@@ -1,0 +1,18 @@
+{
+    "name": "trigger_api_key_middleware",
+    "type": "AUTHENTICATION",
+    "config": {
+        "operation_type": "LOGIN",
+        "providers": [
+            "api-key"
+        ]
+    },
+    "disabled": false,
+    "event_processors": {
+        "FUNCTION": {
+            "config": {
+                "function_name": "api_key_validation_function"
+            }
+        }
+    }
+}
