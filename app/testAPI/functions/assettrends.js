@@ -29,10 +29,10 @@ exports = async function({ query, headers, body}, response) {
         // Campos a mostrar (nota: no es compatible el método 1 con el 0, hay que elegir)
         $project:
           {
-           "Cabecera.Tendencia_Muy_Corto": 1,
-           "Cabecera.Tendencia_Corto": 1,
-           "Cabecera.Tendencia_Medio": 1,
-           "Cabecera.Tendencia_Largo": 1
+           "XS": "$Cabecera.Tendencia_Muy_Corto",
+           "S": "$Cabecera.Tendencia_Corto",
+           "M": "$Cabecera.Tendencia_Medio",
+           "L": "$Cabecera.Tendencia_Largo"
           },
       },
     ];

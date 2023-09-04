@@ -32,5 +32,10 @@
         "name": "api_key_disable_function",
         "private": false,
         "disable_arg_logs": true
+    },
+    {
+        "name": "assettrends",
+        "private": false,
+        "disable_arg_logs": true
     }
 ]
