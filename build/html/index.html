@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget de Datos</title>
+    <style>
+		#widget {
+			font-family: Arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		#widget table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		#widget th, #widget td {
+			border: 1px solid #ddd;
+			padding: 8px;
+		}
+
+		#widget tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+		#widget tr:hover {
+			background-color: #ddd;
+		}
+
+		#widget th {
+			padding-top: 12px;
+			padding-bottom: 12px;
+			text-align: left;
+			background-color: #4CAF50;
+			color: white;
+		}
+    </style>
+</head>
+<body>
+ 
+    <button onclick="fetchRobexia()">Fetch RobexiaAPI</button>
+
+    <div id="widget">
+        <table>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Isin</th>
+                    <th>State</th>
+                    <th>Date</th>
+                    <th>Number</th>
+                    <th colspan="3">Quick Trade Strategy</th>
+                    <th colspan="4">IA</th>
+                    <th>Performance</th>
+                    <th>Breakout</th>
+                </tr>
+                <tr>
+                    <!-- Subencabezados para Quick Trade Strategy e IA -->
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Entry Price</th>
+                    <th>Profit Taking</th>
+                    <th>Stop Loss</th>
+                    <th>AI Global</th>
+                    <th>Model 1</th>
+                    <th>Model 2</th>
+                    <th>Model 3</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se insertarán los datos desde la API -->
+            </tbody>
+        </table>
+    </div>
+   
+    <script src="callapi.js"></script>
+   
+</body>
+</html>
