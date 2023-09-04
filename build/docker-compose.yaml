@@ -1,9 +1,36 @@
 version: '3'
+networks:
+  test_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
+
+
 services:
-  web:
+  widget:
     image: nginx:latest
     container_name: RobexiaWidget
     ports:
       - "3080:80"
     volumes:
       - ./html:/usr/share/nginx/html
+    networks:
+      - test_network: 
+          ipv4_address: 172.16.238.10
+
+  nodeapp:
+    image: node:14 # Replace with your desired Node.js version
+    container_name: my-node-app
+    working_dir: /app
+    volumes:
+      - ./node_approach:/app
+    command: ["node", "middlewareApi.js"]
+    ports:
+      - "3000:3000" # Replace with the desired port mapping if applicable
+    networks:
+      - test_network: 
+          ipv4_address: 172.16.238.11
+
+
+      
